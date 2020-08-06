@@ -4,7 +4,6 @@ import {Card,CardImg,CardImgOverlay,CardText,CardBody,CardTitle} from  'reactstr
 
 class DishDetail extends Component{
 
-
     constructor(props){
         super(props); 
         
@@ -15,27 +14,17 @@ class DishDetail extends Component{
     }
 
     onDishSelect(dish){
-        this.setState({selectedDish: dish})
-        
+        this.setState({selectedDish: dish})    
     }
-        
     
-          
     renderDish(dish){
         if(dish!=null){
 
             return(
-                
-                
-                  
                   <CardBody>
                      <CardTitle >heading>{this.props.dish.name}</CardTitle>
                      <CardText> { this.props.dish.description }</CardText>
-                      
-                      
-                      
                      </CardBody>
-                      
                       );
                        
         }else{
@@ -60,24 +49,13 @@ class DishDetail extends Component{
                  }else{
                     return( <div></div>);
                  }
-
-                 }            
-
-
-
-
+     }            
 
     render(){
-
-           
              
            if(this.props.dish!=null){
 
-
-
             const comments=this.props.dish.comments.map(this.renderComments);
-
-              
 
                  return(
                       <div className="container">
@@ -91,21 +69,16 @@ class DishDetail extends Component{
                          </Card>
                           </div>
                             
-
-                            
                             <div className="col-12 col-md-5 mt-1">
                            <h4>Comments:</h4>
                            {comments}
                             </div>
                        </div>    
                       </div>
- 
             );}
            else{
                return(<div></div>);
-           }
-
-         
+           }        
     }
 }
 export default DishDetail;
