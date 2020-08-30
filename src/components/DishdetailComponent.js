@@ -2,9 +2,9 @@ import React,{Component} from 'react';
 //import {Card,CardImg,CardImgOverlay,CardText,CardBody,CardTitle} from  'reactstrap';
 //import {DishDetail} from './DishdetailComponent';
 import { Card, CardImg, CardText, CardBody,
-   CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+   CardTitle, Breadcrumb, BreadcrumbItem, Button} from 'reactstrap';
 import { Link } from 'react-router-dom';
-
+import CommentForm from './CommentFormComponent';
  
      
 
@@ -13,11 +13,15 @@ import { Link } from 'react-router-dom';
         if(dish!=null){
 
             return(
+                 <div>
                   <CardBody>
                      <CardTitle>heading>{dish.name}</CardTitle>
                      <CardText> {dish.description }</CardText>
                      </CardBody>
-                      );
+                      
+                      
+                      </div>);
+                       
                        
         }else{
            return(<div></div>);
@@ -31,6 +35,7 @@ import { Link } from 'react-router-dom';
                     const m=['Jan','Fab','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
                   
                     return(
+                        <div>
                         <div key={comment.id}  >
                              
                             <ul class = "list-unstyled">
@@ -38,6 +43,8 @@ import { Link } from 'react-router-dom';
                                  
                                  <li>--{comment.author}, { m[new Date().getMonth()]} {new Date().getDate()},{new Date().getFullYear()} </li>
                               </ul>
+                       </div>
+                        
                        </div>
                        );
                 
@@ -74,13 +81,17 @@ import { Link } from 'react-router-dom';
                                <RenderDish dish={props.dish} />
                                </Card>
                           </div>
-                            
+                          
                          <div className="col-12 col-md-5 mt-1">
                            <h4>Comments:</h4>
                                {comments}
+                               <CommentForm/>
                             </div>
-                       </div>    
-                      </div>
+                             
+                       </div>  
+
+                          
+  </div>
             );}
            else{
                return(<div></div>);
